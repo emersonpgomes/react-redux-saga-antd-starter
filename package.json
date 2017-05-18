@@ -1,8 +1,12 @@
 {
-  "name": "filmr",
+  "name": "react-redux-saga-antd-starter",
   "version": "0.0.1",
-  "description": "React Boilerplate Ant Design, Redux, Saga and Webpack",
+  "description": "A React + Redux + Redux Actions + Redux Saga + Ant-Design frontend boilerplate",
   "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/emersonlaurentino/react-redux-saga-antd-starter"
+  },
   "files": [
     "dist/"
   ],
@@ -18,7 +22,7 @@
     "postversion": "git push && git push --tags"
   },
   "author": "Emerson Laurentino",
-  "license": "ISC",
+  "license": "MIT",
   "theme": "./src/theme.js",
   "devDependencies": {
     "antd": "^2.10.1",
