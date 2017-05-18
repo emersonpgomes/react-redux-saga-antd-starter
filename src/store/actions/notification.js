@@ -27,28 +27,3 @@ const { notify } = createActions({
 });
 
 export default notify;
-
-// export const notify = createAction(
-//   'NOTIFY-BASIC',
-//   handlePayload('open'),
-// );
-
-// export const notifySuccess = createAction(
-//   'NOTIFY-SUCCESS',
-//   handlePayload('success'),
-// );
-
-// export const notifyInfo = createAction(
-//   'NOTIFY-INFO',
-//   handlePayload('info'),
-// );
-
-// export const notifyError = createAction(
-//   'NOTIFY-ERROR',
-//   handlePayload('error'),
-// );
-
-// export const notifyWarning = createAction(
-//   'NOTIFY-WARNING',
-//   handlePayload('warning'),
-// );
