@@ -1,8 +1,11 @@
 import { fork } from 'redux-saga/effects';
+import { map, unary } from 'lodash/fp';
 import notification from './notification';
 
 export default function* () {
-  yield [
-    fork(notification),
+  const _sagas = [
+    notification,
   ];
+
+  yield map(unary(fork), _sagas);
 }

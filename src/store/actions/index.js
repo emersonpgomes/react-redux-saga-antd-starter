@@ -1,4 +1,4 @@
-import * as notification from './notification';
+import notification from './notification';
 
 export default {
   ...notification,
