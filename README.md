@@ -15,6 +15,6 @@ A React + Redux + Redux Actions + Redux Saga + Ant-Design frontend boilerplate.
 - [x] Redux Saga
 
 ```
-npm run start
+npm start
 ```
 Open `http://localhost:3000` in your browser.
