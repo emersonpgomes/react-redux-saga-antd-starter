@@ -132,6 +132,7 @@ const devRules = [
       {
         loader: 'postcss-loader',
         options: {
+          sourceMap: true,
           plugins: () => [autoprefixer],
         },
       },
@@ -171,6 +172,7 @@ const prodRules = [
         {
           loader: 'postcss-loader',
           options: {
+            sourceMap: true,
             plugins: () => [autoprefixer],
           },
         },
