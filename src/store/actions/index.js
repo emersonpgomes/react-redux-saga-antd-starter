@@ -1,7 +1,9 @@
+import * as progress from './progress';
 import message from './message';
-import notification from './notification';
+import notify from './notification';
 
 export default {
-  ...message,
-  ...notification,
+  message,
+  notify,
+  progress,
 };

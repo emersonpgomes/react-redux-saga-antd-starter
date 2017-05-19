@@ -1,14 +1,15 @@
 import { createActions } from 'redux-actions';
-import { message as messageAnt } from 'antd';
+import { message as msg } from 'antd';
 
-const handlePayload = type => payload => messageAnt[type](payload);
+const handlePayload = type => (description, duration) => msg[type](description, duration);
 
 const { message } = createActions({
   MESSAGE: {
-    SUCCESS: handlePayload('success'),
     ERROR: handlePayload('error'),
     INFO: handlePayload('info'),
-    WARN: handlePayload('warning'),
+    LOADING: handlePayload('loading'),
+    SUCCESS: handlePayload('success'),
+    WARNING: handlePayload('warning'),
   },
 });
 

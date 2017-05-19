@@ -30,9 +30,11 @@
   "settings": {
     "import/resolver": {
       "babel-module": {
-        "extensions": [".js", ".json", ".android.js", ".ios.js", ".native.js", ".rn.js"]
+        "extensions": [".js", ".jsx"]
+      },
+      "webpack": {
+        "config": "webpack.config.js"
       }
     }
   }
 }
-

@@ -2,34 +2,72 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { Button } from 'antd';
-import notificationActions from '~/store/actions/notification';
-import messageActions from '~/store/actions/message';
+import { Button, Progress } from 'antd';
+import notificationAction from '~/store/actions/notification';
+import messageAction from '~/store/actions/message';
+import actions from '~/store/actions';
+import EmptyContent from '~/views/components/empty-content';
 
-const Home = ({ notify, message }) => (
-  <div>
-    <p>Home</p>
-    <Button
-      onClick={() => notify.success('Test Notification')}
-    >
-      Notification
-    </Button>
-    <Button
-      onClick={() => message.info('Test Message')}
-    >
-      Message
-    </Button>
-  </div>
+const style = {
+  button: {
+    marginLeft: 5,
+    marginRight: 5,
+  },
+  container: {
+    alignItems: 'center',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+  },
+};
+
+const Home = ({ notify, message, percent, increment, decrement }) => (
+  <EmptyContent
+    title="Start Application"
+    description="Wellcome to startkit application"
+    icon="poweroff"
+  >
+    <div style={style.container}>
+      <Progress percent={percent} />
+      <div>
+        <Button
+          style={style.button}
+          onClick={() => notify.success('Test Notification')}
+        >
+          Notification
+        </Button>
+        <Button
+          style={style.button}
+          onClick={() => message.success('Test Message', 10)}
+        >
+          Message
+        </Button>
+        <Button.Group style={{ ...style.button, marginTop: 30 }}>
+          <Button onClick={decrement} icon="minus" />
+          <Button onClick={increment} icon="plus" />
+        </Button.Group>
+      </div>
+    </div>
+  </EmptyContent>
 );
 
 Home.propTypes = {
-  notify: PropTypes.object.isRequired,
+  decrement: PropTypes.func.isRequired,
+  increment: PropTypes.func.isRequired,
   message: PropTypes.object.isRequired,
+  notify: PropTypes.object.isRequired,
+  percent: PropTypes.number.isRequired,
 };
 
-const mapDispatchToProps = dispatch => ({
-  message: bindActionCreators(messageActions, dispatch),
-  notify: bindActionCreators(notificationActions, dispatch),
+const mapStateToProps = state => ({
+  percent: state.progress,
 });
 
-export default connect(null, mapDispatchToProps)(Home);
+const mapDispatchToProps = dispatch => ({
+  message: bindActionCreators(messageAction, dispatch),
+  notify: bindActionCreators(notificationAction, dispatch),
+  increment: () => dispatch(actions.progress.increment()),
+  decrement: () => dispatch(actions.progress.decrement()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

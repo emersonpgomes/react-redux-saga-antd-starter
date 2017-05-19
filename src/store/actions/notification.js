@@ -19,10 +19,10 @@ const handlePayload = type => (payload) => {
 const { notify } = createActions({
   NOTIFY: {
     BASIC: handlePayload('open'),
-    SUCCESS: handlePayload('success'),
     ERROR: handlePayload('error'),
     INFO: handlePayload('info'),
-    WARN: handlePayload('warning'),
+    SUCCESS: handlePayload('success'),
+    WARNING: handlePayload('warning'),
   },
 });
 
